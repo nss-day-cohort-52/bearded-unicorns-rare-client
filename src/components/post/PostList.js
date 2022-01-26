@@ -29,11 +29,11 @@ export const PostList = () => {
             <PostSearch onSearchTermChange={onSearchTermChange} searchTerm={searchTerm} />
             <div style={{ marginTop: "2rem"}}>
                 <button onClick={() => history.push("/posts/create")}>
-                    Make Reservation
+                    Create a Post
                 </button>
                 <div className="posts">
                     {
-                        posts.map(post => <Post key={post.id} post={post} />)
+                        posts.map(post => <Post key={post.id} post={content} />)
                     }
                 </div>
             </div>
