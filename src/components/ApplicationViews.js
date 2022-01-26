@@ -1,7 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { PostList } from "./post/PostList"
-import { Feed } from "./feed/feed"
+import { PostList } from "./feed/PostList"
 
 export const ApplicationViews = () => {
   return (
@@ -16,9 +15,7 @@ export const ApplicationViews = () => {
                     </main>
                 </>
             </Route>
-    <Route path ="/feed/Feed">
-      <Feed />
-    </Route>
+    
     </>
   )
 }

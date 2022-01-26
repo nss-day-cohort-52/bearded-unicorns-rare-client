@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { getPosts, getPostsBySearchTerm } from "./FeedManager"
+import { getPostById, getPosts } from "./FeedManager"
 import Post from "./Post"
-import "./Posts.css"
 import { PostSearch } from "./PostSearch"
 
 export const PostList = () => {
@@ -14,7 +13,7 @@ export const PostList = () => {
     // Initialization effect hook -> Go get post data
     useEffect(()=> {
         if (searchTerm.length > 1) {
-            getPostsBySearchTerm(searchTerm).then((postsData) => setPosts(postsData))
+            getPostById(searchTerm).then((postsData) => setPosts(postsData))
         } else {
             getPosts().then((postsData) => setPosts(postsData))
         }
@@ -33,7 +32,7 @@ export const PostList = () => {
                 </button>
                 <div className="posts">
                     {
-                        posts.map(post => <Post key={post.id} post={content} />)
+                        posts.map(post => <Post key={post.id} post={post} />)
                     }
                 </div>
             </div>
