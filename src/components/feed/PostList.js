@@ -27,7 +27,7 @@ export const PostList = () => {
         <>
             <PostSearch onSearchTermChange={onSearchTermChange} searchTerm={searchTerm} />
             <div style={{ marginTop: "2rem"}}>
-                <button onClick={() => history.push("/posts/create")}>
+                <button className="button is-success" onClick={() => history.push("/posts/create")}>
                     Create a Post
                 </button>
                 <div className="posts">
