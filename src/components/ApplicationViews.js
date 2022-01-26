@@ -1,7 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { UserList } from "./users/UserList"
-import { Feed } from "./feed/feed"
+import { Feed } from "./feed/Feed"
 
 export const ApplicationViews = () => {
   return (
