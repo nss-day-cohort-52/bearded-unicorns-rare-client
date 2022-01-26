@@ -1,15 +1,15 @@
 export const getPosts = () => {
-    return fetch("http://127.0.0.1:8088/posts")
+    return fetch("http://localhost:8088/posts")
         .then(res => res.json())
 }
 
 export const getPostById = (id) => {
-    return fetch(`http://127.0.0.1:8088/posts/${id}`)
+    return fetch(`http://localhost:8088/posts/${id}`)
         .then(res => res.json())
 }
 
 export const addPost = post => {
-    return fetch("http://127.0.0.1:8088/posts", {
+    return fetch("http://localhost:8088/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -20,7 +20,7 @@ export const addPost = post => {
 }
 
 export const updatePost = post => {
-    return fetch(`http://127.0.0.1:8088/posts/${post.id}`, {
+    return fetch(`http://localhost:8088/posts/${post.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -30,8 +30,8 @@ export const updatePost = post => {
         .then(getPosts)
 }
 
-export const releasePost = (postId) => {
-    return fetch(`http://127.0.0.1:8088/posts/${postId}`, {
+export const deletePost = id => {
+    return fetch(`http://localhost:8088/posts/${id}`, {
         method: "DELETE"
     })
         .then(getPosts)

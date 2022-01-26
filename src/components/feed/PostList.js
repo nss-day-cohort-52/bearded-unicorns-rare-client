@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { getPostById, getPosts } from "./FeedManager"
+import { getPostById, getPosts, deletePost } from "./FeedManager"
 import Post from "./Post"
 import { PostSearch } from "./PostSearch"
 
@@ -32,7 +32,12 @@ export const PostList = () => {
                 </button>
                 <div className="posts">
                     {
-                        posts.map(post => <Post key={post.id} post={post} />)
+                        posts.map(post => 
+                            <>
+                            <Post key={post.id} post={post} />
+                    <button onClick={() => deletePost(post.id).then(() => history.push("/posts"))} >Delete Post</button>
+                        </>
+                            )
                     }
                 </div>
             </div>
