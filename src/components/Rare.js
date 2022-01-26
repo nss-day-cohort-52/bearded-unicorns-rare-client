@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import reactDom from "react-dom"
 import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
