@@ -11,18 +11,29 @@ export const CreatePost = () => {
 
 return( <form id="postform">
 <label for="postform">Create New Post</label><br/>
-<textarea type="textarea" id="userpost" name="fandlname" placeholder="Write your post here."  
+<input type="text" id="image_url" name="image_link" placeholder="Paste your image URL here."
+onChange={(e) => 
+    { 
+    const copy = [...postdata]
+    copy.image_url = e.target.value
+}
+/>
+<textarea type="textarea" id="userpost" name="post_text" placeholder="Write your post here."  
 
-onChange={(e) => {
-    const copy = e.target.value
-   updatepostdata(copy)
+onChange= {
+    (e) => {
+    const copy = [...postdata]
+    copy.content = e.target.value
+    updatepostdata(copy)
     }
   }
   />
   <br/>
 <button type="button" id="submitbutton"  name="submitbutton" form="submitpostbutton" 
 
-onClick={()=> addPost(postdata)}>
+onClick={
+    ()=> addPost(postdata)
+    }>
 
 Submit
     </button>
