@@ -32,7 +32,11 @@ export const NavBar = ({ token, setToken }) => {
           {
             token
               ?
+              <>
+            
               <Link to="/" className="navbar-item" to="/posts">Posts</Link>
+              <Link to="/feed/CreatePost" className="button is-outlined">Create New Post</Link>
+            </>
               :
               ""
           }
