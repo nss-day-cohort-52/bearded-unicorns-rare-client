@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { Users } from "./UserManager"
 
 export const UserList = () => {
@@ -21,7 +22,7 @@ export const UserList = () => {
                 users.map(
                     (user) => {
                         return <div key={`user--${user.id}`}>
-                            <div className="username"> {user.username}</div>
+                            <div className="username"><Link to={`/profile/${user.id}`}>{user.username}</Link></div>
                         </div>
                     }
                 ).reverse()

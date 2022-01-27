@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { PostList } from "./feed/PostList"
 import { UserList } from "./users/UserList"
+import { UserProfile } from "./users/UserProfile"
 
 export const ApplicationViews = () => {
   return (
@@ -9,13 +10,14 @@ export const ApplicationViews = () => {
     
     <h1 >Welcome to Rare Publishing</h1>
 
-    <Route path ="/feed/Feed">
-      <Feed />
-    </Route>
-
     <Route exact path="/users">
       <UserList />
     </Route>
+
+    <Route path="/profile/:userProfileId(\d+)">
+      <UserProfile />
+    </Route>
+
     <Route exact path="/posts">
                 <>
                     <main className="postContainer">
