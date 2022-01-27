@@ -15,6 +15,7 @@ export const ApplicationViews = () => {
                         <PostList />
                         
                     </main>
+                    
                 </>
             </Route>
       <Route exact path="/feed/CreatePost">
