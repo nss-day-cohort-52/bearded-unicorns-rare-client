@@ -1,7 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { PostList } from "./feed/PostList"
 import { UserList } from "./users/UserList"
-import { Feed } from "./feed/Feed"
 
 export const ApplicationViews = () => {
   return (
@@ -16,6 +16,15 @@ export const ApplicationViews = () => {
     <Route exact path="/users">
       <UserList />
     </Route>
+    <Route exact path="/posts">
+                <>
+                    <main className="postContainer">
+                        <h1>Posts</h1>
+
+                        <PostList />
+                    </main>
+                </>
+            </Route>
     
     </>
   )
