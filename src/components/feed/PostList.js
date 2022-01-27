@@ -23,6 +23,22 @@ export const PostList = () => {
         setSearchTerm(value)
     }
 
+    const deletePost = (id) => {
+        fetch(`http://localhost:8088/posts/${id}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            fetch("http://localhost:8088/posts")
+            .then(res => res.json())
+            .then((data) => {
+                setPosts(data)
+            })
+            .then(() => {
+                history.push("/posts")
+            }) 
+        })
+    }
+
     return (
         <>
             <PostSearch onSearchTermChange={onSearchTermChange} searchTerm={searchTerm} />
@@ -32,7 +48,12 @@ export const PostList = () => {
                 </button>
                 <div className="posts">
                     {
-                        posts.map(post => <Post key={post.id} post={post} />)
+                        posts.map(post => 
+                            <>
+                            <Post key={post.id} post={post} />
+                    <button onClick={() => deletePost(post.id)}>Delete Post</button>
+                        </>
+                            )
                     }
                 </div>
             </div>
