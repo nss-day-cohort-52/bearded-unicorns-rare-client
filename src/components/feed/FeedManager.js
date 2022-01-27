@@ -29,10 +29,3 @@ export const updatePost = post => {
     })
         .then(getPosts)
 }
-
-export const deletePost = id => {
-    return fetch(`http://localhost:8088/posts/${id}`, {
-        method: "DELETE"
-    })
-        .then(getPosts)
-}

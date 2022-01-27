@@ -13,6 +13,7 @@ export const ApplicationViews = () => {
 
                         <PostList />
                     </main>
+                    
                 </>
             </Route>
     

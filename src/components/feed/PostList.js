@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { getPostById, getPosts, deletePost } from "./FeedManager"
+import { getPostById, getPosts } from "./FeedManager"
 import Post from "./Post"
 import { PostSearch } from "./PostSearch"
 
@@ -23,6 +23,22 @@ export const PostList = () => {
         setSearchTerm(value)
     }
 
+    const deletePost = (id) => {
+        fetch(`http://localhost:8088/posts/${id}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            fetch("http://localhost:8088/posts")
+            .then(res => res.json())
+            .then((data) => {
+                setPosts(data)
+            })
+            .then(() => {
+                history.push("/posts")
+            }) 
+        })
+    }
+
     return (
         <>
             <PostSearch onSearchTermChange={onSearchTermChange} searchTerm={searchTerm} />
@@ -35,7 +51,7 @@ export const PostList = () => {
                         posts.map(post => 
                             <>
                             <Post key={post.id} post={post} />
-                    <button onClick={() => deletePost(post.id).then(() => history.push("/posts"))} >Delete Post</button>
+                    <button onClick={() => deletePost(post.id)}>Delete Post</button>
                         </>
                             )
                     }
