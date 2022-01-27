@@ -4,11 +4,14 @@ import { Link } from "react-router-dom"
 
 export default ({ post }) => (
     <section className="post">
-        <h3 className="post__name">
+        <div className="post_item">
             <Link to={`/posts/${post.id}`}>
                 { post.title }
             </Link>
-        </h3>
-        <div className="post__content">{ post.content }</div>
+        </div>
+        <div className="post_item">{ post.user.first_name }</div> 
+        <div className="post_item">{post.user.last_name}</div>
+        <div className="post_item">{post.publication_date} </div>
+        <div className="post_item">{post.category.label}</div>
     </section>
 )
