@@ -20,14 +20,11 @@ export const TagList = () => {
             <div className="tags">
                 {
                     tags.map(tag => {
-                        return <article key={`tag--${tag.id}`} style={{ width: `18rem` }}>
-                            <section>
+                        return <div key={`tag--${tag.id}`} style={{ width: `18rem` }}>
                                     <h2>{tag.label}</h2>
                                 <button>Edit</button>
                                 <button>Delete</button>
-                            </section>
-        
-                        </article>
+                        </div>
                     })
                 }
             </div>
