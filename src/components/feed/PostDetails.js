@@ -19,6 +19,7 @@ export const PostDetails = () => {
     return (
         <>
             <section className="postD_Id" key={postId}> 
+                <img src={postD.image_url} />
                 <h3 className="postD__title">Title: {postD.title}</h3>
                 <div className="postD__author">Author: {postD.user?.first_name} {postD.user?.last_name}</div>
                 <div className="postD__category">Category: {postD.category?.label}</div>
