@@ -7,10 +7,10 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 
 export const Rare = () => {
-  const [token, setTokenState] = useState(localStorage.getItem('token'))
+  const [token, setTokenState] = useState(localStorage.getItem('lu_token'))
 
   const setToken = (newToken) => {
-    localStorage.setItem('token', newToken)
+    localStorage.setItem('lu_token', newToken)
     setTokenState(newToken)
   }
 
