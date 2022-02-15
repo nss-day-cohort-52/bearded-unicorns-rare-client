@@ -22,6 +22,10 @@ export const ApplicationViews = () => {
         <UserProfile />
       </Route>
 
+      <Route exact path="/posts/:postUserId(\d+)">
+        <UserPosts />
+      </Route>
+
       <Route exact path="/posts">
         <h1>Posts</h1>
         <PostList />
