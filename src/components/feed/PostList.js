@@ -23,21 +23,21 @@ export const PostList = () => {
         setSearchTerm(value)
     }
 
-    const deletePost = (id) => {
-        fetch(`http://localhost:8088/posts/${id}`, {
-            method: "DELETE"
-        })
-        .then(() => {
-            fetch("http://localhost:8088/posts")
-            .then(res => res.json())
-            .then((data) => {
-                setPosts(data)
-            })
-            .then(() => {
-                history.push("/posts")
-            }) 
-        })
-    }
+    // const deletePost = (id) => {
+    //     fetch(`http://localhost:8000/posts/${id}`, {
+    //         method: "DELETE"
+    //     })
+    //     .then(() => {
+    //         fetch("http://localhost:8000/posts")
+    //         .then(res => res.json())
+    //         .then((data) => {
+    //             setPosts(data)
+    //         })
+    //         .then(() => {
+    //             history.push("/posts")
+    //         }) 
+    //     })
+    // }
 
     return (
         <>
