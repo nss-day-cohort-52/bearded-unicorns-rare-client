@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { Users } from "./UserManager"
+import { getRareUsers, Users } from "./UserManager"
 
-export const UserList = () => {
-    const [users, setUsers] = useState([])
+export const RareUserList = () => {
+    const [rareusers, setRareUsers] = useState([])
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/users")
-                .then(res => res.json())
-                .then((userArray) => {
-                    setUsers(userArray)
-                })
+            getRareUsers().then(data => setRareUsers(data))
         },
         []
     )
@@ -19,10 +15,10 @@ export const UserList = () => {
     return (
         <>
             {
-                users.map(
+                rareusers.map(
                     (user) => {
-                        return <div key={`user--${user.id}`}>
-                            <div className="username"><Link to={`/profile/${user.id}`}>{user.username}</Link></div>
+                        return <div key={`rareuser--${rareuser.id}`}>
+                            <div className="username"><Link to={`/profile/${rareuser.id}`}>{rareuser.username}</Link></div>
                         </div>
                     }
                 ).reverse()
