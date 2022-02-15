@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react"
+import Link, {useHistory} from "react-router-dom"
+import { getTags } from "./TagManager"
 
-export const TagList = () => {
+export const TagList = (props) => {
     const [tags, setTags] = useState([])
-    const [employees, setEmployees] = useState([])
 
-    const getTags = () => {
-        return fetch("http://localhost:8088/tags")
-            .then(res => res.json())
-    }
+    const history = useHistory()
+
     useEffect(() => {
-        getTags()
-        .then(data => setTags(data))
+        getTags().then(data => setTags(data))
     }, [])
 
     return (
@@ -22,11 +20,14 @@ export const TagList = () => {
                     tags.map(tag => {
                         return <div key={`tag--${tag.id}`} style={{ width: `18rem` }}>
                                     <h2>{tag.label}</h2>
-                                <button>Edit</button>
-                                <button>Delete</button>
                         </div>
                     })
                 }
+                <button className="btn btn-2 btn-sep icon-create"
+                    onClick={() => {
+                        history.push({ pathname: "/tags/new" })
+                    }}
+                    >Create New Tag</button>
             </div>
         </div>
     )
