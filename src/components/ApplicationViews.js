@@ -6,6 +6,8 @@ import { UserList } from "./users/UserList"
 import { UserProfile } from "./users/UserProfile"
 import { CategoryList } from "./categories/CategoryList"
 import { TagList } from "./tags/TagList"
+import { UserPosts } from "./users/UserPost"
+import { TagForm } from "./tags/TagForm"
 
 export const ApplicationViews = () => {
   return (
@@ -23,6 +25,10 @@ export const ApplicationViews = () => {
         <UserProfile />
       </Route>
 
+      <Route exact path="/posts/:postUserId(\d+)">
+        <UserPosts />
+      </Route>
+
       <Route exact path="/posts">
         <h1>Posts</h1>
         <PostList />
@@ -35,8 +41,13 @@ export const ApplicationViews = () => {
       <Route exact path="/categories">
         <CategoryList />
       </Route>
+
       <Route exact path="/tags">
         <TagList />
+      </Route>
+
+      <Route exact path="/tags/new">
+        <TagForm />
       </Route>
     </>
   )
