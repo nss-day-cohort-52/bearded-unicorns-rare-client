@@ -2,7 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { PostDetails } from "./feed/PostDetails"
 import { PostList } from "./feed/PostList"
-import { RareUserList } from "./users/UserList"
+import { UserList } from "./users/UserList"
 import { UserProfile } from "./users/UserProfile"
 import { CategoryList } from "./categories/CategoryList"
 import { TagList } from "./tags/TagList"
@@ -16,10 +16,10 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route exact path="/rareusers">
-        <RareUserList />
+        <UserList />
       </Route>
 
-      <Route path="/profile/:userProfileId(\d+)">
+      <Route exact path="/rareusers/:userId(\d+)">
         <UserProfile />
       </Route>
 
