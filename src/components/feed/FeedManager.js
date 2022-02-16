@@ -1,5 +1,5 @@
 export const getPosts = () => {
-    return fetch("http://127.0.0.1:8000/posts", {
+    return fetch("http://localhost:8000/posts", {
         headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }

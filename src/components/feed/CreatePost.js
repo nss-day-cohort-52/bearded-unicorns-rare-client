@@ -101,12 +101,12 @@ export const PostForm = () => {
                         id: currentPost.id,
                         title: currentPost.title,
                         publication_date: currentPost.publication_date,
-                        image_url: null,
-                        content: "",
-                        approved: true,
-                        user: 0,
-                        category: 0,
-                        tags: []
+                        image_url: currentPost.image_url,
+                        content: currentPost.content,
+                        approved: currentPost.approved,
+                        user: currentPost.user,
+                        category: currentPost.category,
+                        tags: currentPost.tags
                     }
 
                     // Send POST request to your API
