@@ -6,7 +6,7 @@ export const CategoryList = () => {
     const [employees, setEmployees] = useState([])
 
     const getCategories = () => {
-        return fetch("http://localhost:8088/categories")
+        return fetch("http://localhost:8000/categories")
             .then(res => res.json())
     }
     useEffect(() => {
