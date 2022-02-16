@@ -8,6 +8,8 @@ import { CategoryList } from "./categories/CategoryList"
 import { TagList } from "./tags/TagList"
 import { PostForm } from "./feed/CreatePost"
 import { UpdatePost } from "./feed/UpdatePost"
+import { UserPosts } from "./users/UserPost"
+import { TagForm } from "./tags/TagForm"
 
 export const ApplicationViews = () => {
   return (
@@ -23,6 +25,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/rareusers/:userId(\d+)">
         <UserProfile />
+      </Route>
+
+      <Route exact path="/posts/:postUserId(\d+)">
+        <UserPosts />
       </Route>
 
       <Route exact path="/posts">
@@ -44,8 +50,13 @@ export const ApplicationViews = () => {
       <Route exact path="/categories">
         <CategoryList />
       </Route>
+
       <Route exact path="/tags">
         <TagList />
+      </Route>
+
+      <Route exact path="/tags/new">
+        <TagForm />
       </Route>
     </>
   )
