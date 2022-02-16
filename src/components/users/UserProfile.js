@@ -23,7 +23,7 @@ export const UserProfile = () => {
                 <div className="user__bio">Bio: {user.bio}</div>
                 <div className="user___image_url">Picture: {user.profile_image_url}</div>
                 <div className="user__created_on">Created On: {user.created_on}</div>
-                <div className="user__active">Status: {user.active}</div>           
+                <div className="user__active">Status: {user?.active?.toString()}</div>           
             </section>
         </>
     )

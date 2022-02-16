@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getRareUsers } from "./UserManager"
+import { deleteRareUser, getRareUsers } from "./UserManager"
 
 export const UserList = () => {
     const [ users, setUsers] = useState([])
@@ -21,7 +21,9 @@ export const UserList = () => {
                             <div className="username">Username: <Link to={`/rareusers/${user.id}`}>{user.user.username}</Link></div>
                             <div className="first_name">First Name: {user.user.first_name}</div>
                             <div className="last_name">Last Name: {user.user.last_name}</div>
-                            <div className="user_type">User Type: {user.active}</div>
+                            <div className="user_type">User Type: {user?.active?.toString()}</div>
+                            <button onClick={() => deleteRareUser(user, user.id).then(res => setUsers(res))
+                            .then(() => history.push("/rareusers"))} >Delete</button>
                         </div>
                     }
                 ).reverse()
