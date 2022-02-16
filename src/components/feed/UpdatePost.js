@@ -18,10 +18,10 @@ export const UpdatePost = () => {
         tags: []
     })
 
-    useEffect(() => {
-        getCategories().then(c => setCategories(c))
-    }, [])
-    
+    // useEffect(() => {
+    //     getCategories().then(c => setCategories(c))
+    // }, [])
+
     useEffect(() => {
         getPostById(postId).then(postData => setCurrentPost({
             title: postData.title,
@@ -35,20 +35,9 @@ export const UpdatePost = () => {
             .then(getCategories().then(data => setCategories(data)))
     }, [postId])
 
-    
-    // useEffect(() => {
-    //     getGameById(gameId).then(gameData => setCurrentGame({
-    //         skill_level: gameData.skill_level,
-    //         number_of_players: gameData.number_of_players,
-    //         title: gameData.title,
-    //         maker: gameData.maker,
-    //         game_type: gameData.game_type.id}))
-    //         .then(getGameTypes().then(data => setGameTypes(data)))
-    // }, [gameId])
-
     const changeUpdatedPost = (domEvent) => {
         domEvent.preventDefault()
-        const copy = { ...currentGame }
+        const copy = { ...currentPost }
         let key = domEvent.target.name
         copy[key] = domEvent.target.value
         setCurrentPost(copy)
@@ -122,7 +111,7 @@ export const UpdatePost = () => {
                         image_url: currentPost.image_url,
                         content: currentPost.content,
                         approved: currentPost.approved,
-                        user: currentPost.user,
+                        user: currentPost.user.id,
                         category: currentPost.category,
                         tags: currentPost.tags
                     }

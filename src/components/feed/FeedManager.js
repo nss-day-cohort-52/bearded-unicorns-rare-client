@@ -28,8 +28,8 @@ export const addPost = post => {
         .then(getPosts)
 }
 
-export const updatePost = post => {
-    return fetch(`http://localhost:8000/posts/${post.id}`, {
+export const updatePost = (post, id) => {
+    return fetch(`http://localhost:8000/posts/${id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,
@@ -37,7 +37,7 @@ export const updatePost = post => {
         },
         body: JSON.stringify(post)
     })
-        .then(getPosts)
+        
 }
 
 export const deletePost = (post, id) => {
