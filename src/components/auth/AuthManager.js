@@ -2,6 +2,7 @@ export const loginUser = (user) => {
   return fetch("http://127.0.0.1:8000/login", {
     method: "POST",
     headers: {
+      "Authorization": `Token ${localStorage.getItem("lu_token")}`,
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
