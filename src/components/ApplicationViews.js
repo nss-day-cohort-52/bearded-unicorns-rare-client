@@ -11,6 +11,7 @@ import { PostForm } from "./feed/CreatePost"
 import { UpdatePost } from "./feed/UpdatePost"
 import { UserPosts } from "./users/UserPost"
 import { TagForm } from "./tags/TagForm"
+import { UpdateCategory } from "./categories/UpdateCategory"
 
 export const ApplicationViews = () => {
   return (
@@ -55,6 +56,10 @@ export const ApplicationViews = () => {
       
       <Route exact path="/categories/create">
         <CategoryForm />
+      </Route>
+      
+      <Route exact path="/categories/:categoryId(\d+)/update">
+        <UpdateCategory />
       </Route>
 
       <Route exact path="/tags">
