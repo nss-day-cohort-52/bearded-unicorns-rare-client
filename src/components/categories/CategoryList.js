@@ -25,7 +25,11 @@ export const CategoryList = () => {
                         return <article key={`category--${category.id}`} className="card category" style={{ width: `18rem` }}>
                             <section className="card-body">
                                     <h2 className="card-title">{category.label}</h2>
-                                <button>Edit</button>
+                                    <button onClick={() => {
+                            history.push({ pathname: `/categories/${category.id}/update`})
+                        }}>
+                            Edit
+                        </button>
                                 <button>Delete</button>
                             </section>
         
