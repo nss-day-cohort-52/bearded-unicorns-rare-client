@@ -118,9 +118,12 @@ export const UpdatePost = () => {
 
                     // Send POST request to your API
                     updatePost(post, postId)
-                        .then(() => history.push("/posts"))
+                        .then(() => history.push(`/posts/${postId}`))
                 }}
-                className="btn btn-primary">Update Post</button>
+                className="btn btn-primary">Save Post</button>
+            <button type="cancel" onClick={() => {
+                history.push("/posts")
+            }}>Cancel</button>
         </form>
     )
 }

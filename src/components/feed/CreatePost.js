@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { addPost, getPostById, getCategories } from './FeedManager.js'
 
 
@@ -7,15 +7,12 @@ export const PostForm = () => {
     const history = useHistory()
     const [posts, setPosts] = useState([])
     const [categories, setCategories] = useState([])
+    const { postId } = useParams()
 
-    /*
-        Since the input fields are bound to the values of
-        the properties of this state variable, you need to
-        provide some default values.
-    */
+
     const [currentPost, setCurrentPost] = useState({
         title: "",
-        publication_date: "",
+        // publication_date: "",
         image_url: null,
         content: "",
         approved: true,
@@ -24,13 +21,13 @@ export const PostForm = () => {
         tags: []
     })
 
-    // useEffect(() => {
-    //     getPostById().then(postId => setPosts(postId))
-    // }, [])
+
 
     useEffect(() => {
         getCategories().then(categories => setCategories(categories))
     }, [])
+
+
 
     const changePostState = (domEvent) => {
         domEvent.preventDefault()
@@ -52,7 +49,7 @@ export const PostForm = () => {
                     />
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="publication_date">Published on: </label>
                     <input type="date" name="publication_date" required autoFocus className="form-control"
@@ -60,7 +57,7 @@ export const PostForm = () => {
                         onChange={changePostState}
                     />
                 </div>
-            </fieldset>
+            </fieldset> */}
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="image_url">Image: </label>
@@ -104,7 +101,7 @@ export const PostForm = () => {
 
                     const post = {
                         title: currentPost.title,
-                        publication_date: currentPost.publication_date,
+                        // publication_date: currentPost.publication_date,
                         image_url: currentPost.image_url,
                         content: currentPost.content,
                         approved: currentPost.approved,
@@ -115,9 +112,10 @@ export const PostForm = () => {
 
                     // Send POST request to your API
                     addPost(post)
-                        .then(() => history.push("/posts"))
+                        .then(res => res.json())
+                        .then((data) => history.push(`/posts/${data.id}`))
                 }}
-                className="btn btn-primary">Create Post</button>
+                className="btn btn-primary">Save Post</button>
         </form>
     )
 }
