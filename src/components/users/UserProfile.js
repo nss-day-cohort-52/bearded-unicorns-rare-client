@@ -41,16 +41,16 @@ export const UserProfile = () => {
                         profile_image_url: image
                     }
                     // Send POST request to your API
-                    addImage(profileImage, userId)
-                        .then(() => history.push(`/rareusers/${userId}`))
-                }
+                    Promise.all([addImage(profileImage, userId), getUserById(userId)])
+                    .then(setUser)
+                }}
                     // Upload the stringified image that is stored in state
-                }>Upload</button>
+                >Upload</button>
                 <div className="user__first_name">First Name: {user.user?.first_name}</div>
                 <div className="user__last_name">Last Name: {user.user?.last_name}</div>
                 <div className="user__email">Email: {user.user?.email}</div>
                 <div className="user__bio">Bio: {user.bio}</div>
-                <img src={user.profile_image_url} className="user___image_url" />
+                <img src={`http://localhost:8000${user.profile_image_url}`} className="user___image_url" />
                 <div className="user__created_on">Created On: {user.created_on}</div>
                 <div className="user__active">Status: {user?.active?.toString()}</div>
             </section>
