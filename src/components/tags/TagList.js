@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import {useHistory} from "react-router-dom"
-import { getTags } from "./TagManager"
+import { getTags, deleteTag } from "./TagManager"
 
 export const TagList = (props) => {
     const [tags, setTags] = useState([])
@@ -20,7 +20,11 @@ export const TagList = (props) => {
                     tags.map(tag => {
                         return <div key={`tag--${tag.id}`} style={{ width: `18rem` }}>
                                     <h2>{tag.label}</h2>
-                        </div>
+                                    <button className="btn"onClick={() => {
+                                        history.push({ pathname: "/tag/delete"})
+                                    }}>Delete Tag</button>
+                                </div>
+                               
                     })
                 }
                 <button className="btn btn-2 btn-sep icon-create"

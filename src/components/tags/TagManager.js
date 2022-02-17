@@ -14,6 +14,14 @@ export const createTag = (tag) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(tag)
+    }).then(res => res.json()) 
+}
+
+export const deleteTag = (tagId) => {
+    return fetch(`http://localhost:8000/tags/${tagId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
     })
-        .then(res => res.json)
 }
