@@ -20,9 +20,13 @@ export const TagList = (props) => {
                     tags.map(tag => {
                         return <div key={`tag--${tag.id}`} style={{ width: `18rem` }}>
                                     <h2>{tag.label}</h2>
-                                    <button className="btn"onClick={() => {
-                                        history.push({ pathname: "/tag/delete"})
-                                    }}>Delete Tag</button>
+                                    <button onClick={() => {
+                                if (confirm('Are you sure you want to delete this tag?') == true)
+                                    deleteTag(tag, tag.id)
+                                        .then(response => setTags(response))
+                            }}>
+                                Delete Tag
+                            </button>
                                 </div>
                                
                     })

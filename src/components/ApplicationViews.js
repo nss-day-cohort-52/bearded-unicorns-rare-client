@@ -64,10 +64,6 @@ export const ApplicationViews = () => {
       <Route exact path="/tags/new">
         <TagForm />
       </Route>
-
-      <Route exact path="/tag/delete">
-        <DeleteTag />
-      </Route>
     </>
   )
 }
