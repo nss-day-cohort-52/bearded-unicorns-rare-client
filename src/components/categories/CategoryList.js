@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { useHistory } from 'react-router-dom'
+import { getCategories } from "./CategoryManager";
 
 export const CategoryList = () => {
     const [categories, setCategories] = useState([])
-    const [employees, setEmployees] = useState([])
+    const history = useHistory()
 
-    const getCategories = () => {
-        return fetch("http://localhost:8088/categories")
-            .then(res => res.json())
-    }
+    
     useEffect(() => {
         getCategories()
         .then(data => setCategories(data))
@@ -19,18 +17,14 @@ export const CategoryList = () => {
             <h1>Categories</h1>
 
             <div className="categories">
+            <button className="button is-success" onClick={() => history.push("/categories/create")}>
+                    Create Category
+                </button>
                 {
                     categories.map(category => {
                         return <article key={`category--${category.id}`} className="card category" style={{ width: `18rem` }}>
                             <section className="card-body">
-
-                                <Link className="card-link"
-                                    to={{
-                                        pathname: `/categories/${category.id}`,
-                                        state: { chosenCategory: category }
-                                    }}>
                                     <h2 className="card-title">{category.label}</h2>
-                                </Link>
                                 <button>Edit</button>
                                 <button>Delete</button>
                             </section>
