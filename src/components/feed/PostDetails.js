@@ -25,6 +25,11 @@ export const PostDetails = () => {
                 <div className="postD__content">Content: {postD.content}</div>
                 <div className="postD__category">Category: {postD.category?.label}</div>
             </section>
+            <button className="comments" onClick={() => {
+                                history.push({ pathname: `/posts/${postId}/comment` })
+                            }}>
+                                Comment
+            </button>
         </>
     )
 }    

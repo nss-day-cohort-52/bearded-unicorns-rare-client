@@ -4,12 +4,11 @@ import { updatePost, getPostById, getCategories } from './FeedManager.js'
 
 export const UpdatePost = () => {
     const history = useHistory()
-    const {postId} = useParams()
+    const { postId } = useParams()
     const [categories, setCategories] = useState([])
 
     const [currentPost, setCurrentPost] = useState({
         title: "",
-        publication_date: "",
         image_url: null,
         content: "",
         approved: true,
@@ -17,10 +16,6 @@ export const UpdatePost = () => {
         category: 1,
         tags: []
     })
-
-    // useEffect(() => {
-    //     getCategories().then(c => setCategories(c))
-    // }, [])
 
     useEffect(() => {
         getPostById(postId).then(postData => setCurrentPost({
@@ -31,7 +26,8 @@ export const UpdatePost = () => {
             approved: postData.approved,
             user: postData.user,
             category: postData.category,
-            tags: postData.tags,}))
+            tags: postData.tags,
+        }))
             .then(getCategories().then(data => setCategories(data)))
     }, [postId])
 
@@ -51,15 +47,6 @@ export const UpdatePost = () => {
                     <label htmlFor="title">Title: </label>
                     <input type="text" name="title" required autoFocus className="form-control"
                         value={currentPost.title}
-                        onChange={changeUpdatedPost}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="publication_date">Published on: </label>
-                    <input type="date" name="publication_date" required autoFocus className="form-control"
-                        value={currentPost.publication_date}
                         onChange={changeUpdatedPost}
                     />
                 </div>
@@ -107,7 +94,6 @@ export const UpdatePost = () => {
 
                     const post = {
                         title: currentPost.title,
-                        publication_date: currentPost.publication_date,
                         image_url: currentPost.image_url,
                         content: currentPost.content,
                         approved: currentPost.approved,

@@ -12,7 +12,6 @@ export const PostForm = () => {
 
     const [currentPost, setCurrentPost] = useState({
         title: "",
-        // publication_date: "",
         image_url: null,
         content: "",
         approved: true,
@@ -49,15 +48,7 @@ export const PostForm = () => {
                     />
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="publication_date">Published on: </label>
-                    <input type="date" name="publication_date" required autoFocus className="form-control"
-                        value={currentPost.publication_date}
-                        onChange={changePostState}
-                    />
-                </div>
-            </fieldset> */}
+           
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="image_url">Image: </label>
@@ -101,7 +92,6 @@ export const PostForm = () => {
 
                     const post = {
                         title: currentPost.title,
-                        // publication_date: currentPost.publication_date,
                         image_url: currentPost.image_url,
                         content: currentPost.content,
                         approved: currentPost.approved,
