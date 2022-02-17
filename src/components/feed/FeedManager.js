@@ -25,7 +25,7 @@ export const addPost = post => {
         },
         body: JSON.stringify(post)
     })
-        .then(getPosts)
+        
 }
 
 export const updatePost = (post, id) => {
