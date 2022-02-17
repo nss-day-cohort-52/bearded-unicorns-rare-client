@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { getCategories } from "./CategoryManager";
+import { deleteCategory, getCategories } from "./CategoryManager";
 
 export const CategoryList = () => {
     const [categories, setCategories] = useState([])
@@ -30,7 +30,13 @@ export const CategoryList = () => {
                         }}>
                             Edit
                         </button>
-                                <button>Delete</button>
+                        <button onClick={() => {
+                                if (confirm('Are you sure you want to delete this category?') == true)
+                                    deleteCategory(category, category.id)
+                                        .then(response => setCategories(response))
+                            }}>
+                                Delete
+                            </button>
                             </section>
         
                         </article>

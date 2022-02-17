@@ -28,7 +28,7 @@ export const UpdateCategory = () => {
 
     return (
         <form className="updateForm">
-            <h2 className="updateForm__title">Edit the Category</h2>
+            <h2 className="updateForm__category">Edit the Category</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="label">Category Name: </label>

@@ -18,10 +18,6 @@ export const UpdatePost = () => {
         tags: []
     })
 
-    // useEffect(() => {
-    //     getCategories().then(c => setCategories(c))
-    // }, [])
-
     useEffect(() => {
         getPostById(postId).then(postData => setCurrentPost({
             title: postData.title,
