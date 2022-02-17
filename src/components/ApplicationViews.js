@@ -11,6 +11,7 @@ import { PostForm } from "./feed/CreatePost"
 import { UpdatePost } from "./feed/UpdatePost"
 import { UserPosts } from "./users/UserPost"
 import { TagForm } from "./tags/TagForm"
+import { EditTag } from "./tags/EditTag"
 
 export const ApplicationViews = () => {
   return (
@@ -63,6 +64,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/tags/new">
         <TagForm />
+      </Route>
+
+      <Route exact path="/tags/:tagId(\d+)/edit">
+        <EditTag />
       </Route>
     </>
   )
