@@ -24,3 +24,13 @@ export const deleteRareUser = (user, id) => {
   })
       .then(getRareUsers)
 }
+export const addImage = (image, id) => {
+  return fetch(`http://localhost:8000/rareusers/${id}`, {
+      method: "PUT",
+      headers: {
+          "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(image)
+  })
+}
