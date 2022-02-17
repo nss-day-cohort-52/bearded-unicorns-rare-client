@@ -48,7 +48,6 @@ export const PostForm = () => {
                     />
                 </div>
             </fieldset>
-           
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="image_url">Image: </label>
