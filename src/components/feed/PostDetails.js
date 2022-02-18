@@ -24,6 +24,7 @@ export const PostDetails = () => {
                 <div className="postD__publicationDate">Publication Date: {postD.publication_date}</div>
                 <div className="postD__content">Content: {postD.content}</div>
                 <div className="postD__category">Category: {postD.category?.label}</div>
+                <div className="postD__tag">Tag: {postD.tag?.label}</div>
             </section>
         </>
     )

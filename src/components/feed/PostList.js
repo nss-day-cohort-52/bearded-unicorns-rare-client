@@ -35,6 +35,7 @@ export const PostList = () => {
                         return <section key={`post--${post.id}`} className="post">
                             <div className="post__title"><Link to={`/posts/${post.id}`}>{post.title}</Link></div>
                             <div className="post__category">Category: {post.category.label}</div>
+                            <div className="post__tag">Tag: {post.tag?.label}</div>
                             <div className="post__author">Author: {post.user.user.first_name} {post.user.user.last_name}</div>
                             <button onClick={() => {
                                 history.push({ pathname: `/posts/${post.id}/update` })
