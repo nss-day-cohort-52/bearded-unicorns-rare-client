@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { useHistory, useParams } from 'react-router-dom'
-import { addPost, getPostById, getCategories } from './FeedManager.js'
+import { useHistory } from 'react-router-dom'
+import { addPost, getCategories } from './FeedManager.js'
 
 
 export const PostForm = () => {
     const history = useHistory()
-    const [posts, setPosts] = useState([])
     const [categories, setCategories] = useState([])
-    const { postId } = useParams()
 
 
     const [currentPost, setCurrentPost] = useState({
