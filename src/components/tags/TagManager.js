@@ -6,7 +6,7 @@ export const getTags = () => {
     }).then(res => res.json())
   }
 
-  export const getTagById = (id) => {
+export const getTagById = (id) => {
     return fetch(`http://localhost:8000/tags/${id}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`

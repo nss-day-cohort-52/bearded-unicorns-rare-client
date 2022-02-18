@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
-import { useHistory } from 'react-router-dom'
-import { addPost, getCategories } from './FeedManager.js'
+import { useHistory, useParams } from 'react-router-dom'
+import { addPost, getPostById, getCategories, getTags } from './FeedManager.js'
 
 
 export const PostForm = () => {
     const history = useHistory()
     const [categories, setCategories] = useState([])
+    const [tags, setTags] = useState([])
+    const { postId } = useParams()
 
 
     const [currentPost, setCurrentPost] = useState({
@@ -22,6 +24,10 @@ export const PostForm = () => {
 
     useEffect(() => {
         getCategories().then(categories => setCategories(categories))
+    }, [])
+
+    useEffect(() => {
+        getTags().then(tags => setTags(tags))
     }, [])
 
 
@@ -75,6 +81,23 @@ export const PostForm = () => {
                             categories.map(cat => (
                                 <option key={cat.id} value={cat.id}>
                                     {cat.label}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="tag">Tag: </label>
+                    <select name="tag" required autoFocus className="form-control"
+                        value={currentPost.tag}
+                        onChange={changePostState}>
+                        <option value="0">Select a Tag</option>
+                        {
+                            tags.map(tag => (
+                                <option key={tag.id} value={tag.id}>
+                                    {tag.label}
                                 </option>
                             ))
                         }
