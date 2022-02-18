@@ -5,7 +5,6 @@ import { addPost, getPostById, getCategories, getTags } from './FeedManager.js'
 
 export const PostForm = () => {
     const history = useHistory()
-    const [posts, setPosts] = useState([])
     const [categories, setCategories] = useState([])
     const [tags, setTags] = useState([])
     const { postId } = useParams()

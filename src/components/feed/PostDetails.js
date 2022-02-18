@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { getPostById } from "./FeedManager"
+import { getComments } from "../comments/CommentManager"
+import { CommentForm } from "../comments/CommentForm"
+
 
 
 export const PostDetails = () => {
     const [postD, setPostD] = useState({})
     const [tags, setTags] = useState({})
+    const [comments, setComments] = useState({})
     const { postId } = useParams()
+    const history = useHistory() 
 
     useEffect(
         () => {
             getPostById(postId).then(data => setPostD(data))
-                },
-                [postId])
-        
+        },
+        [postId])
+    // useEffect(() => {
+    //     getComments(postId).then(comments => setComments(comments))
+    // },
+    //     [postId])
 
     return (
         <>
-            <section className="postD_Id" key={postId}> 
+            <section className="postD_Id" key={postId}>
                 <img src={postD.image_url} />
                 <h3 className="postD__title">Title: {postD.title}</h3>
                 <div className="postD__author">Author: {postD.user?.user.first_name} {postD.user?.user.last_name}</div>
@@ -26,6 +34,14 @@ export const PostDetails = () => {
                 <div className="postD__category">Category: {postD.category?.label}</div>
                 <div className="postD__tag">Tag: {postD.tag?.label}</div>
             </section>
+            <button className="comments" onClick={() => {
+                history.push({ pathname: `/posts/${postId}/comment` })
+                .then(CommentForm())
+            }}>
+                Comment
+            </button>
+
+
         </>
     )
-}    
+}

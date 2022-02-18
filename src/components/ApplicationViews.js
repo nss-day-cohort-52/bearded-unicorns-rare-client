@@ -13,6 +13,7 @@ import { UserPosts } from "./users/UserPost"
 import { TagForm } from "./tags/TagForm"
 import { UpdateCategory } from "./categories/UpdateCategory"
 import { EditTag } from "./tags/EditTag"
+import { CommentForm } from "./comments/CommentForm"
 
 export const ApplicationViews = () => {
   return (
@@ -49,6 +50,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/posts/:postId(\d+)/update">
         <UpdatePost />
+      </Route>
+
+      <Route exact path="/posts/:postId(\d+)/comment">
+        <CommentForm />
       </Route>
 
       <Route exact path="/categories">
